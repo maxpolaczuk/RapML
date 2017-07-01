@@ -9,12 +9,14 @@ The current version of the model generates structured nonsense. But there are a 
 ### Examples
 A couple of less offensive generated lyric excerpts are shown below:
 
+-------------
 **[INPUT]** *i told y'all about that fake love*
 
 **[RapML]**  *but if they up the whole screamin' i movin' with this one*
 
 Doesn't make sense, but it at least rhymes.
 
+--------------
 **[INPUT]** *his palms are sweaty, knees weak, arms are heavy* 
 
 **[RapML]** *on the black of every of old bentley*
