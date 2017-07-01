@@ -43,30 +43,40 @@ vocab.to_csv('rap_vocab.csv')
 print('csv saved')
 vocab = pd.read_csv('rap_vocab.csv')
 
-# # convert vocab to dictionary LUT:
-# LUT = {  str(vocab.ix[i,1]) : vocab.ix[i,0] for i in range(len(vocab))}
-# print(LUT)
 
-# # get word frequencies:
-# # setup new col in dataframe:
-# vocab['freqs'] = np.zeros(len(vocab))
+# convert vocab to dictionary LUT:
+LUT = {  str(vocab.ix[i,1]) : vocab.ix[i,0] for i in range(len(vocab))}
+print(LUT)
 
-# for i in range(len(df)):
-# 	line = rap_izer(str(df['verses'][i])).split()
-# 	for j,word in enumerate(line):
-# 		# add one to the word frequency
-# 		vocab['freqs'][LUT[str(word)]] = vocab['freqs'][LUT[str(word)]] + 1
+# get word frequencies:
+# setup new col in dataframe:
+vocab['freqs'] = np.zeros(len(vocab))
 
-# 	if i % 100 == 0:
-# 		print('iteration %s' % i)
+for i in range(len(df)):
+	line = rap_izer(str(df['verses'][i])).split()
+	for j,word in enumerate(line):
+		# add one to the word frequency
+		vocab['freqs'][LUT[str(word)]] = vocab['freqs'][LUT[str(word)]] + 1
 
-# # save CSV with frequencies now
-# print('overwriting csv...')
-# vocab.to_csv('rap_vocab_freq.csv')
-# print('csv saved')
+	if i % 100 == 0:
+		print('iteration %s' % i)
+
+# save CSV with frequencies now
+print('overwriting csv...')
+vocab.to_csv('rap_vocab.csv')
+print('csv saved')
 
 
-# # for memory delete what is not needed
-# del vocab
-# del voca
+# for memory delete what is not needed
+del vocab
+del voca
+
+# save as a json file
+with open('vocab.json', 'w') as f:
+    #data['new_key'] = [1, 2, 3]
+	json.dump(LUT, f)
+
+print('Saved lookup table to json')
+
+# for every sentence
 
