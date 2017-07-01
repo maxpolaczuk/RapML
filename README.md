@@ -1,5 +1,5 @@
 # RapML
-Compiles a rap lines dataset. Uses seq2seq LSTM to generate **fire bars** after being given an input line of rap lyrics.
+Compiles a rap lines dataset - dataset scraped from rapgenius and built using scripts in "Data" folder. Uses seq2seq LSTM to generate **fire bars** after being given an input line of rap lyrics.
 
 The model is trained by feeding one line of lyrics as inputs, with a matching output sentence that is ideally, on-topic & rhymes.
 
